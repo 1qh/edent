@@ -1,0 +1,39 @@
+{
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "turbo build",
+    "clean": "git clean -xdf node_modules",
+    "clean:workspaces": "turbo clean",
+    "db:push": "bun --filter='*/db' push",
+    "db:studio": "bun --filter='*/db' studio",
+    "dev": "turbo dev --parallel",
+    "fix": "prettier-package-json --write **/package.json && bun lint:fix && bun format:fix && bun typecheck && eslint . --fix",
+    "format": "turbo format --continue -- --cache --cache-location node_modules/.cache/.prettiercache",
+    "format:fix": "turbo format --continue -- --write --cache --cache-location node_modules/.cache/.prettiercache",
+    "postinstall": "bun lint:ws",
+    "lint": "turbo lint --continue -- --cache --cache-location node_modules/.cache/.eslintcache",
+    "lint:fix": "turbo lint --continue -- --fix --cache --cache-location node_modules/.cache/.eslintcache",
+    "lint:ws": "bunx sherif@latest",
+    "typecheck": "turbo typecheck",
+    "ui-add": "bun --filter='*/ui' ui-add",
+    "up": "concurrently --restart-tries -1 'turbo dev --parallel' 'bun --filter='*/db' studio'"
+  },
+  "workspaces": [
+    "apps/*",
+    "packages/*",
+    "tooling/*"
+  ],
+  "devDependencies": {
+    "@a/prettier-config": "workspace:*",
+    "@turbo/gen": "latest",
+    "@types/bun": "latest",
+    "concurrently": "latest",
+    "prettier": "latest",
+    "prettier-package-json": "latest",
+    "turbo": "latest",
+    "typescript": "latest"
+  },
+  "packageManager": "bun@^1",
+  "prettier": "@a/prettier-config"
+}

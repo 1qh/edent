@@ -1,0 +1,6 @@
+{ "name": "@a/{{name}}", "private": true, "version": "0.1.0", "type": "module", "exports": { ".":
+"./src/index.ts" }, "license": "MIT", "scripts": { "clean": "rm -rf .turbo node_modules", "format":
+"prettier --check . --ignore-path ../../.gitignore", "lint": "eslint", "typecheck": "tsc --noEmit"
+}, "devDependencies": { "@a/eslint-config": "workspace:*", "@a/prettier-config": "workspace:*",
+"@a/tsconfig": "workspace:*", "eslint": "^9.0.0", "prettier": "latest", "typescript": "^5.4.3" },
+"prettier": "@a/prettier-config" }

@@ -1,0 +1,8 @@
+{
+  "name": "@a/eden",
+  "type": "module",
+  "main": "src/index.ts",
+  "dependencies": {
+    "@elysiajs/eden": "latest"
+  }
+}
